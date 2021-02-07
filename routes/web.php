@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::post('/request', 'HomeController@requestInfo')->name('request.info');
+Route::get('/contacts', 'HomeController@contatti')->name('contacts');
+Route::get('/thanks', 'HomeController@thanks')->name('thanks');
 Route::get('/categories', 'CategoriesController@index')->name('categories.index');
 Route::get('/categories/{slug}', 'CategoriesController@show')->name('categories.show');
 Route::get('/posts', 'PostController@index')->name('posts.index');
