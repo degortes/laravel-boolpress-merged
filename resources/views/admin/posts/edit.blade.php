@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <form method="post" action="{{route('admin.posts.update' , ['post' => $posts->id])}}">
+            <form method="post" action="{{route('admin.posts.update' , ['post' => $posts->id])}}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-row">
@@ -19,6 +19,20 @@
                         <input value="{{old('author', $posts->author )}}" name="author" type="text" class="form-control" required>
                         @error('author')
                             <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-12">
+                        @if ($posts->cover)
+                            <figure>
+                                <figcaption>Immagine presente:</figcaption>
+                                <img src="{{asset('storage/'.$posts->cover )}}" alt="{{$posts->title}}">
+
+                            </figure>
+                        @endif
+                        <input type="file" name="cover" class="form-control-file">
+
+                        @error('cover')
+                        <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-12">

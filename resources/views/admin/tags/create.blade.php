@@ -5,6 +5,7 @@
         <div class="row">
             <form method="post" action="{{route('admin.tags.store')}}">
                 @csrf
+                @method('POST')
                 <div class="form-row">
                     <div class="form-group col-12">
                         <label>Nome</label>

@@ -15,9 +15,14 @@
                     <h1>{{$last_post->title}}</h1>
                 </div>
                 <div class="card-body">
+                    @if ($last_post->cover)
+
+                        <img class="card-img-top" src="{{asset('storage/'. $last_post->cover)}}" alt="Card image cap">
+                    @endif
+
                     <p class="card-text">{{$last_post->description}}</p>
                     <p class="card-text"> Autore: {{$last_post->author}}</p>
-                    <a href="{{route('categories.show' ,['slug' => $last_post->category->slug ])}}">
+                    <a href="{{route('categories.show' ,['slug' => $last_post->slug ])}}">
                         <p class="card-text"> categoria: {{$last_post->category ? $last_post->category->name : 'none'}}</p>
                     </a>
                     <p>Tags:
@@ -54,7 +59,13 @@
             @foreach ($posts as $key => $post)
                 @if ($key > 0 && $key <= 5)
                     <div class="card" style="width: 18rem;">
-                        {{-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+                        @if ($post->cover)
+
+                            <img class="card-img-top" src="{{asset('storage/'. $post->cover)}}" alt="{{$post->title}}">
+                        @endif
+
+
+
                         <div class="card-body">
                             <h5 class="card-title">{{$post->title}}</h5>
                             <p class="card-text">{{$post->description}}</p>

@@ -3,8 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <form method="post" action="{{route('admin.posts.store')}}">
+            <form method="post" action="{{route('admin.posts.store')}}" enctype="multipart/form-data">
                 @csrf
+                @method('POST')
                 <div class="form-row">
                     <div class="form-group col-12">
                         <label>Titolo</label>
@@ -17,6 +18,13 @@
                         <label >autore</label>
                         <input value="{{old('author')}}"name="author" type="text" class="form-control" required >
                         @error('author')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-12">
+                        <input type="file" name="cover" class="form-control-file">
+
+                        @error('cover')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

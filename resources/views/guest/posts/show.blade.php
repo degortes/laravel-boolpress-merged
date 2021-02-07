@@ -9,9 +9,12 @@
         <div class="card-body">
             <p class="card-text">{{$posts->description}}</p>
             <p class="card-text"> Autore: {{$posts->author}}</p>
-            <a href="{{route('categories.show' ,['slug' => $posts->category->slug ])}}">
-                <p class="card-text"> categoria: {{$posts->category ? $posts->category->name : 'none'}}</p>
-            </a>
+            @if ($posts->category->slug)
+                <a href="{{route('categories.show' ,['slug' => $posts->category->slug ])}}">
+                    <p class="card-text"> categoria: {{$posts->category ? $posts->category->name : 'none'}}</p>
+                </a>
+
+            @endif
             <p>Tags:
 
                 @forelse ($posts->tags as $tag)
