@@ -38,7 +38,7 @@ class HomeController extends Controller
         $new_customer = new Clienti();
         $new_customer->fill($form_data);
         $new_customer->save();
-        Mail::to('info@mergepress.com')->send(new ContactRequest($new_customer));
+        Mail::to('selezione-personale@mergepress.com')->send(new ContactRequest($new_customer));
 
         return redirect()->route('thanks');
     }

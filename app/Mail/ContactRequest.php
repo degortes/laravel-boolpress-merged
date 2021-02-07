@@ -29,6 +29,8 @@ class ContactRequest extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.message');
+        return $this
+        ->replyTo($this->contact_request->email)
+        ->view('emails.message');
     }
 }
