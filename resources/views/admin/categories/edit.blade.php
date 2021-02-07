@@ -10,7 +10,7 @@
                     <div class="form-group col-12">
                         <label>Titolo</label>
                         <input value="{{old( 'name', $categories->name)}}" type="text" name="name" class="form-control" required>
-                        @error('title')
+                        @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

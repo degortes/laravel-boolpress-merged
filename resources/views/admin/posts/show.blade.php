@@ -12,14 +12,12 @@
             <p class="card-text"> Slug: {{$posts->slug}}</p>
             <p class="card-text"> categoria: {{$posts->category ? $posts->category->name : 'none'}}</p>
             <p>Tags:
-
                 @forelse ($posts->tags as $tag)
                     {{ $tag->name }}{{ !$loop->last ? ',' : '' }}
                 @empty
                     -
                 @endforelse
             </p>
-
         </div>
         <div class="card-footer text-muted">
             <p>
@@ -29,9 +27,7 @@
                 <p>
                     Data ultima modifica articolo: {{ date('d-m-Y', strtotime($posts->updated_at))}}
                 </p>
-
             @endif
-
         </div>
     </div>
 @endsection

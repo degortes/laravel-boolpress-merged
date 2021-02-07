@@ -17,20 +17,10 @@
                     <td>{{$cat->name}}</td>
                     <td>{{$cat->slug}}</td>
                     <td><a href="{{route('admin.categories.edit' , ['category' => $cat->id ] )}}" class="btn btn-warning">Modifica</a></td>
-                    
                 </tr>
-
             @endforeach
         </tbody>
     </table>
-
-    {{-- <ul>
-    @foreach ($categories as $cat)
-        <li>
-            <a href="{{ route('admin.categories.show' , ['category'=> $cat->id])}}">{{$cat->name}}</a>
-        </li>
-    @endforeach
-    </ul> --}}
     <div class="text-center">
         <a href="{{route('admin.categories.create')}}" class="btn btn-primary">Aggiungi Categoria</a>
     </div>

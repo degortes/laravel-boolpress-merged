@@ -29,14 +29,10 @@
                     </form>
                 </td>
             </tr>
-
         @endforeach
     </tbody>
 </table>
 <div class="text-center">
     <a href="{{route('admin.posts.create')}}" class="btn btn-primary">Aggiungi Articolo</a>
 </div>
-
-
-
 @endsection

@@ -21,12 +21,9 @@
                             <p>
                                 Data ultima modifica articolo: {{date('d-m-Y', strtotime($single_post->updated_at))}}
                             </p>
-
                         @endif
-
                     </div>
                 </div>
-
             </a>
     @endforeach
 @endsection
