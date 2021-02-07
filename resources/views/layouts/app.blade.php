@@ -23,18 +23,28 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Boolpress
-                </a>
-                <a class="navbar-brand" href="{{ route('posts.index') }}">
-                    Post
-                </a>
-                <a class="navbar-brand" href="{{ route('categories.index') }}">
-                    Categorie
-                </a>
-                <a class="navbar-brand" href="{{ route('contacts') }}">
-                    Contatti
-                </a>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            Boolpress
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a  class="{{Request::route()->getName() == 'posts.index'? 'nav-link active' : 'nav-link' }}" href="{{ route('posts.index') }}">
+                            Post
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="{{Request::route()->getName() == 'categories.index'? 'nav-link active' : 'nav-link' }}"href="{{ route('categories.index') }}">
+                            Categorie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="{{Request::route()->getName() == 'contacts'? 'nav-link active' : 'nav-link' }}"href="{{ route('contacts') }}">
+                            Contatti
+                        </a>
+                    </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

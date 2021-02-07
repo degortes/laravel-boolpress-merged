@@ -22,26 +22,6 @@
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{route('index')}}">Visita il sito </a>
-        <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
-            @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-                </li>
-            @endguest
-        </ul>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <div>
@@ -63,27 +43,27 @@
         <div class="row">
             <nav class="col-md-3 d-none d-md-block bg-light sidebar" id="side-main-nav">
                 <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
+                    <ul class="nav flex-column nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{route('admin.index')}}">
+                            <a class="{{Request::route()->getName() == 'admin.index'? 'nav-link active' : 'nav-link' }}" href="{{route('admin.index')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                                 Pannello di Controllo <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.posts.index')}}">
+                            <a class="{{Request::route()->getName() == 'admin.posts.index'? 'nav-link active' : 'nav-link' }}" href="{{route('admin.posts.index')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                                 Post
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.categories.index')}}">
+                            <a class="{{Request::route()->getName() == 'admin.categories.index'? 'nav-link active' : 'nav-link' }}" href="{{route('admin.categories.index')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                                 Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.tags.index')}}">
+                            <a class="{{Request::route()->getName() == 'admin.tags.index'? 'nav-link active' : 'nav-link' }}" href="{{route('admin.tags.index')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                                 Tags
                             </a>

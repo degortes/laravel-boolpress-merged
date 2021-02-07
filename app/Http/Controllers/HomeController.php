@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Clienti;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactRequest;
 
 class HomeController extends Controller
 {
@@ -28,7 +30,6 @@ class HomeController extends Controller
     }
     public function contatti() {
         return view('guest.contacts');
-
     }
 
     public function requestInfo(Request $request)
@@ -37,9 +38,9 @@ class HomeController extends Controller
         $new_customer = new Clienti();
         $new_customer->fill($form_data);
         $new_customer->save();
+        Mail::to('info@mergepress.com')->send(new ContactRequest($new_customer));
+
         return redirect()->route('thanks');
-
-
     }
     public function thanks()
     {
