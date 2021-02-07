@@ -14,8 +14,8 @@
             @foreach ($tags as $tag)
                 <tr>
                     <td>{{$tag->id}}</td>
-                    <td>{{$tag->name}}</td>
-                    <td>{{$tag->slug}}</td>
+                    <td><a href="{{route('admin.tags.show', ['tag' => $tag->id])}}">{{$tag->name}}</td>
+                    <td>{{$tag->slug}}</a></td>
                     <td><a href="{{route('admin.tags.edit' , ['tag' => $tag->id ] )}}" class="btn btn-warning">Modifica</a></td>
                 </tr>
             @endforeach

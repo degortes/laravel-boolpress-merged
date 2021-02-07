@@ -14,7 +14,7 @@
             @foreach ($categories as $cat)
                 <tr>
                     <td>{{$cat->id}}</td>
-                    <td>{{$cat->name}}</td>
+                    <td> <a href="{{route('admin.categories.show' , ['category' => $cat->id ] )}}"> {{$cat->name}}</a></td>
                     <td>{{$cat->slug}}</td>
                     <td><a href="{{route('admin.categories.edit' , ['category' => $cat->id ] )}}" class="btn btn-warning">Modifica</a></td>
                 </tr>

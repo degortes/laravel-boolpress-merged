@@ -1,7 +1,7 @@
 @extends('layouts.controls')
 
 @section('content')
-    <h1 class="col-12">Tag per articolo: {{$tag->name}}</h1>
+    <h1 class="col-12">articoli per il Tag: {{$tag->name}}</h1>
     @foreach ($tag->posts as $single_post)
             <a class=" col-4 "href="{{route('admin.posts.show' , ['post' => $single_post->id ] )}}">
                 <div class="card text-center">
@@ -9,7 +9,7 @@
                         <h3>{{$single_post->title}}</h3>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{Str::of($single_post->description)->limit(150)}}</p>
+                        <p class="card-text">{{Str::of($single_post->description)->limit(150)}}...</p>
                         <p class="card-text"> Autore: {{$single_post->author}}</p>
                         <p class="card-text"> categoria: {{$single_post->category ? $single_post->category->name : 'none'}}</p>
                     </div>

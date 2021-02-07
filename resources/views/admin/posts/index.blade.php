@@ -16,7 +16,7 @@
         @foreach ($posts as $post)
             <tr>
                 <td>{{$post->id}}</td>
-                <td>{{$post->title}}</td>
+                <td> <a href="{{route('admin.posts.show', ['post' => $post->id])}}">{{$post->title}}</a></td>
                 <td>{{$post->author}}</td>
                 <td>{{$post->slug}}</td>
                 <td><a href="{{route('admin.posts.show' , ['post' => $post->id ] )}}" class="btn btn-primary">Dettagli</a></td>
