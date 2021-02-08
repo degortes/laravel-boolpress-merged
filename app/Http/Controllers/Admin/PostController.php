@@ -159,8 +159,8 @@ class PostController extends Controller
 
         if (array_key_exists('cover' , $form_data)) {
             $image_path = Storage::put('cover_image' , $form_data['cover']);
+            $form_data['cover'] = $image_path;
         }
-        $form_data['cover'] = $image_path;
 
         $post->update($form_data);
         if(array_key_exists('tags', $form_data)) {

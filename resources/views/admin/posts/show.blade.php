@@ -9,7 +9,10 @@
         <div class="card-body">
             <p class="card-text"> Articolo: {{$posts->description}}</p>
             <p class="card-text"> Autore: {{$posts->author}}</p>
-            <img src="{{asset('storage/'. $posts->cover)}}" alt="{{$posts->title}}">
+            @if ($posts->cover)
+
+                <img src="{{asset('storage/'. $posts->cover)}}" alt="{{$posts->title}}">
+            @endif
             <p class="card-text"> Slug: {{$posts->slug}}</p>
             <p class="card-text"> categoria: {{$posts->category ? $posts->category->name : 'none'}}</p>
             <p>Tags:
@@ -30,5 +33,13 @@
                 </p>
             @endif
         </div>
+        <div class="">
+            <a href="{{route('admin.posts.edit' , ['post' => $posts->id ] )}}" class="btn btn-warning">Modifica</a>
+        </div>
+        <form action="{{route('admin.posts.destroy' , ['post' => $posts->id ] )}}" method="post">
+            <button type="submit" name="button" class="btn btn-danger">Elimina</button>
+            @csrf
+            @method('DELETE')
+        </form>
     </div>
 @endsection
