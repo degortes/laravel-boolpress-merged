@@ -22,9 +22,13 @@
 
                     <p class="card-text">{{$last_post->description}}</p>
                     <p class="card-text"> Autore: {{$last_post->author}}</p>
-                    <a href="{{route('categories.show' ,['slug' => $last_post->slug ])}}">
-                        <p class="card-text"> categoria: {{$last_post->category ? $last_post->category->name : 'none'}}</p>
-                    </a>
+
+                        <p class="card-text"> categoria:
+                            @if ($last_post->category)
+                                <a href="{{route('categories.show' ,['slug' => $last_post->category->slug ])}}">
+                                {{$last_post->category ? $last_post->category->name : 'none'}}</p>
+                                </a>
+                            @endif
                     <p>Tags:
 
                         @forelse ($last_post->tags as $tag)

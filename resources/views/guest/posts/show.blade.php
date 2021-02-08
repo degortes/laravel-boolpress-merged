@@ -9,7 +9,7 @@
         <div class="card-body">
             <p class="card-text">{{$posts->description}}</p>
             <p class="card-text"> Autore: {{$posts->author}}</p>
-            @if ($posts->category->slug)
+            @if ($posts->category)
                 <a href="{{route('categories.show' ,['slug' => $posts->category->slug ])}}">
                     <p class="card-text"> categoria: {{$posts->category ? $posts->category->name : 'none'}}</p>
                 </a>
