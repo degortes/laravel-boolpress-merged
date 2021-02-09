@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Tag;
 use App\Category;
@@ -52,14 +52,14 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'exists:tags,id',
             'description' =>'required ',
-            'cover' => 'nullable|image|max:700 '
+            'cover' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
         $input_data = $request->all();
         $add_post = new Post();
         if (array_key_exists('cover' , $input_data )) {
             $image_path = Storage::put('cover_image' , $input_data['cover']);
+            $input_data['cover'] = $image_path;
         }
-        $input_data['cover'] = $image_path;
         $add_post->fill($input_data);
         $slug = Str::slug($add_post->title);
         $slug_base = $slug;
@@ -137,7 +137,7 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'exists:tags,id',
             'description' =>'required ',
-            'cover' => 'nullable|image|max:700'
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:700'
 
         ]);
 
