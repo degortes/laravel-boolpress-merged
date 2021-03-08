@@ -137,7 +137,7 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'exists:tags,id',
             'description' =>'required ',
-            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:700'
+            'cover' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
 
         ]);
 
